@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 def pow(a, b):
     print(pow(a, b))
-    return sum
+    return a, b
