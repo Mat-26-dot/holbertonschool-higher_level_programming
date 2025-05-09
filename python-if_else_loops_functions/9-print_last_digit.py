@@ -5,4 +5,4 @@ def print_last_digit(number):
     print(last_digit)
     return last_digit
 result = print_last_digit(128)
-print("Returned:", result)
+print(result)
