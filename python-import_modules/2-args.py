@@ -13,3 +13,6 @@ if __name__ == "__main__":
 
     else:
         print(f"{num_args} arguments:")
+
+    for i, arg in enumerate(sys.argv[1:], 1):
+        print(f"{i}: {arg}")
