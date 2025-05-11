@@ -1,13 +1,9 @@
 #!/usr/bin/python3
 import sys
 
-args = sys.argv[1:]
-print(args)
+if __name__ == "__main__":
 
-str_nums = ['0']
-int_nums = map(int, str_nums)
-print(list(int_nums))
-
-str_nums = ['79' '10' '89']
-int_nums = map(int, str_nums)
-print(list(int_nums))
+    args = sys.argv[1:]
+int_args = map(int, args)
+result = sum(map(int, args))
+print(result)
