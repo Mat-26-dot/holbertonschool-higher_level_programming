@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 def new_in_list(my_list, idx, element):
-    
-    my_list.copy()
 
     if idx < 0:
         return my_list
 
     if idx >= len(my_list):
         return my_list
-    my_list[idx] = element
 
-    return my_list
+    value = my_list.copy()
+    value[idx] = element
+    
+    return value
