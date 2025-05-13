@@ -9,5 +9,5 @@ def new_in_list(my_list, idx, element):
 
     value = my_list.copy()
     value[idx] = element
-    
+
     return value
