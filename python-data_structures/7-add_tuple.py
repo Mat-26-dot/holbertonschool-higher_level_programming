@@ -6,7 +6,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     
     
     
-    if tuple_a < 2: 
+    if tuple_a < 2: # thinking out loud
         return tuple_a
     
     if tuple_b <= 2:
