@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
+    # Get first elements, use 0 if not present
+    a1 = tuple_a[0] if len(tuple_a) > 0 else 0
+    b1 = tuple_b[0] if len(tuple_b) > 0 else 0
 
-    for i in range  (tuple_a): #loop through to find length
-        for i in range (tuple_b): # loop through to find length
-    
-    
-    
-    if tuple_a < 2: # thinking out loud
-        return tuple_a
-    
-    if tuple_b <= 2:
-        return tuple_b
+    # Get second elements, use 0 if not present
+    a2 = tuple_a[1] if len(tuple_a) > 1 else 0
+    b2 = tuple_b[1] if len(tuple_b) > 1 else 0
 
-     
+    return (a1 + b1, a2 + b2)
