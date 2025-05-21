@@ -10,6 +10,3 @@ def safe_print_list_integers(my_list=[], x=0):
             pass
     print()
     return count
-
-nb_print = safe_print_list_integers([1, 2, 3, 4, "a"], 4)
-print(nb_print)
