@@ -1,10 +1,10 @@
->>> from 0-add_integer import add_integer
->>> add_integer(2, 3)
+>>> from ''0-add_integer'' import add_integer
+>>> ''add_integer''(2, 3)
 5
->>> add_integer(100)
+>>> ''add_integer''(100)
 198
->>> add_integer(2.5, 3.7)
+>>> ''add_integer''(2.5, 3.7)
 5
->>> add_integer("hi", 3)
+>>> ''add_integer''("hi", 3)
 Traceback (most recent call last):
 TypeError: a must be an integer
