@@ -2,7 +2,7 @@ Doctest for function that says my name
 ---------------------------------------
 
 Import .py module:
-    >>> say_my_name = __import__('3-say_my_name').say_my_name   
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 Basic use:
     >>> say_my_name("Bob", "Lenon")
@@ -10,9 +10,9 @@ Basic use:
 
 One argument:
     >>> say_my_name("Bob")
-    My name is Bob
+    My name is Bob 
 
-First int argument
+First int argument:
     >>> say_my_name(12, "Lenon")
     Traceback (most recent call last):
     ...
