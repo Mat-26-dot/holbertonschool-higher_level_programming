@@ -5,15 +5,15 @@ Import .py module:
     >>> say_my_name = __import__('3-say_my_name').say_my_name   
 
 Basic use:
-    >>> say_my_name("Bob", "Lennon")
-    My name is Bob Lennon
+    >>> say_my_name("Bob", "Lenon")
+    My name is Bob Lenon
 
 One argument:
-    >>> say_mu name("Bob")
+    >>> say_my_name("Bob")
     My name is Bob
 
 First int argument
-    >>> say_my_name(12, "Lennon")
+    >>> say_my_name(12, "Lenon")
     Traceback (most recent call last):
     ...
     TypeError: first_name must be a string
