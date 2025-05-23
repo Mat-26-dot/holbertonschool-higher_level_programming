@@ -9,7 +9,7 @@ Basic use:
     My name is Bob Lenon
 
 One argument:
-    >>> say_my_name ("Bob")
+    >>> say_my_name("Bob")
     My name is Bob
 
 First int argument
