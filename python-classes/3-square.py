@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Class that defines a square"""
 
+
 class Square:
-        """Defines a square"""
+    """Defines a square"""
 def __init__(self, size =0):
         
     if type(size) is not int:
