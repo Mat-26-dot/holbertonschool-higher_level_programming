@@ -1,17 +1,19 @@
 #!/usr/bin/python3
 """Defines a rectangle by its height and width"""
 
+
 class Rectangle:
     """Defines a rectangle"""
+    
     def __init__(self, width=0, height=0):
-        self.width = width # Calls the width setter
-        self.height = height # Calls the height setter
+        self.width = width      # Calls the width setter
+        self.height = height    # Calls the height setter
 
     @property
     def width(self):
         """Get the width of a rectangle"""
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         """
@@ -25,7 +27,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
-    
+
     @property
     def height(self):
         """Get the height of a rectangle"""
