@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """Defines a rectangle by its height and width"""
 
+class Rectangle:
 
-def __init__(self, width=0, height=0):
-    self.width = width # Calls the width setter
-    self.height = height # Calls the height setter
+    def __init__(self, width=0, height=0):
+        self.width = width # Calls the width setter
+        self.height = height # Calls the height setter
 
     @property
     def width(self):
