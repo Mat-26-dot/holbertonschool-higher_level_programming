@@ -2,7 +2,6 @@
 """Class that define rectangle"""
 
 
-
 class Rectangle:
     """Defines a rectangle by width and height."""
 
