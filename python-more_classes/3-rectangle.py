@@ -18,7 +18,7 @@ class Rectangle:
     def width(self):
         """Retrieve the width of a rectangle"""
         return self.__width
-        
+
     @width.setter
     def width(self, value):
         """Set the width of a rectangle"""
@@ -32,7 +32,7 @@ class Rectangle:
         def height(self):
             """Retrieve height of a rectangle"""
             return self.__height
-            
+
         @height.setter
         def height(self, value):
             if not isinstance(value, int):
@@ -42,8 +42,8 @@ class Rectangle:
             self.__height = value
 
     def area(self):
-            """Return the area of the rectangle."""
-            return self.width * self.height
+        """Return the area of the rectangle."""
+        return self.width * self.height
 
     def perimeter(self):
         """Return the perimeter of the rectangle.
@@ -54,7 +54,7 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Return a string representation of the rectangle using '#' characters.
+        """Return string representation of rectangle using '#' characters.
         Returns an empty string if width or height is 0.
         """
         if self.width == 0 or self.height == 0:
