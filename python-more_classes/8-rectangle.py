@@ -17,8 +17,8 @@ class Rectangle:
         Initialize a new Rectangle instance.
         Increments the instance counter.
         """
-        self.width = width    # Set width via property setter 
-        self.height = height  # Set height via property setter 
+        self.width = width    # Set width via property setter
+        self.height = height  # Set height via property setter
         Rectangle.number_of_instances += 1  # Increment class counter
 
     # Private instance attributes
