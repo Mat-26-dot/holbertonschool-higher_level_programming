@@ -43,7 +43,7 @@ class Rectangle:
         return self.width * self.height
 
     def perimeter(self):
-        """Return the perimeter of the rectangle, or 0 if width or height is 0."""
+        """Return perimeter of rectangle, or 0 if width or height is 0."""
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.width + self.height)
