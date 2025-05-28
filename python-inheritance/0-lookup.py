@@ -2,5 +2,5 @@
 """Return a list"""
 
 def lookup(obj):
-    
-   return dir(obj)
+    """Returns a list object"""
+    return dir(obj)
