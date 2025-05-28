@@ -20,7 +20,7 @@ class Rectangle:
         width and height are optional and default to 0.
         """
         self.width = width   # Use property setter for validation
-        self.height = height # Use property setter for validation
+        self.height = height  # Use property setter for validation
         Rectangle.number_of_instances += 1  # Increment instance counter
 
     @property
@@ -54,7 +54,7 @@ class Rectangle:
         if not isinstance(value, int):
             raise TypeError("height must be an integer")  # Enforce type
         if value < 0:
-            raise ValueError("height must be >= 0")       # Enforce non-negative
+            raise ValueError("height must be >= 0")  # Enforce non-negative
         self.__height = value
 
     def area(self):
