@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from abc import ABC, abstractmethod, 
+from abc import ABC, abstractmethod
 import math
 
 class Shape(ABC):
