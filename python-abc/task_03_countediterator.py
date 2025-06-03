@@ -13,7 +13,7 @@ class CountedIterator:
 
     def __next__(self):
         self.counter += 1               # Increment the counter
-        return item      # Get next item or raise StopIteration
+        return item     # Get next item or raise StopIteration
 
 # Testing the CountedIterator
 
