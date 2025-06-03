@@ -12,6 +12,7 @@ class CountedIterator:
         return self                     # The iterator returns itself
 
     def __next__(self):
+        item = next(self.iterator)
         self.counter += 1               # Increment the counter
         return item     # Get next item or raise StopIteration
 
