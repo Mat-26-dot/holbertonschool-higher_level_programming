@@ -8,4 +8,4 @@ def to_json_string(my_obj):
     """
     Converts a Python object to its JSON string representation.
     """
-    return (my_obj)
+    return json.dumps(my_obj)
