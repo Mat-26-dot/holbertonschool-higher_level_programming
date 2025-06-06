@@ -8,7 +8,7 @@ import json
 
 def load_from_json_file(filename):
     """Loads and parses JSON data from a file."""
-    
+
     try:
         with open(filename, 'r') as f:
             return json.load(f)
@@ -18,8 +18,4 @@ def load_from_json_file(filename):
         print(f"[FileNotFoundError] {e}")
     except PermissionError as e:
         print(f"[PermissionError] {e}")
-
-
-
-
         
