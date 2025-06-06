@@ -18,3 +18,5 @@ def load_from_json_file(filename):
         print(f"[FileNotFoundError] {e}")
     except PermissionError as e:
         print(f"[PermissionError] {e}")
+    except FileNotFoundError:
+        return []
