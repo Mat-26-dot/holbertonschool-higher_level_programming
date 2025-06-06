@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module provides utilities for 
+"""This module provides utilities for
 reading and writing JSON files."""
 
 
