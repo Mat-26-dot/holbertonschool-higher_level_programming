@@ -12,11 +12,5 @@ def load_from_json_file(filename):
     try:
         with open(filename, 'r') as f:
             return json.load(f)
-    except json.JSONDecodeError as e:
-        print(f"[JSONDecodeError] {e}")
-    except FileNotFoundError as e:
-        print(f"[FileNotFoundError] {e}")
-    except PermissionError as e:
-        print(f"[PermissionError] {e}")
     except FileNotFoundError:
         return []
