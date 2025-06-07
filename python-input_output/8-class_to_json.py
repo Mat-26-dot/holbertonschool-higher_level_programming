@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+"""
+    Returns a dictionary of all instance attributes of obj.
+    """
+
 
 def class_to_json(obj):
-
-    def __init__(self, obj):
-        self.obj = obj
     return obj.__dict__   
 
 
