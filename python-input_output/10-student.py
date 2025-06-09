@@ -8,10 +8,10 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        self.attrs=None = attrs
-        student_dict = {
-                        "first_name": self.first_name,
-                        "last_name": self.last_name,
-                        "age": self.age,
-                        }
-        return attrs
+        student_dict = self.__dict__.copy()
+        if isinstance(attrs, list) and all (isinstance(attr, str)
+        for attr in attrs):
+            student_dict = {key: student_dict[key] for key in attrs if key
+        in student_dict}
+            
+        return student_dict
