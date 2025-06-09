@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+class Student:
+
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age 
+        print("Initializing Student:")
+        print("First name:", first_name)
+        print("Last name:", last_name)
+        print("Age:", age)
+    def to_json(self): 
+        student_dict = {
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "age": self.age
+
+    }
+        print("Dictionary representation:", student_dict)
+        return student_dict
