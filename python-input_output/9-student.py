@@ -13,5 +13,4 @@ class Student:
             "age": self.age
 
     }
-        print("Dictionary representation:", student_dict)
         return student_dict
