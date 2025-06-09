@@ -12,8 +12,8 @@ class Student:
     def to_json(self, attrs=None):
         student_dict = self.__dict__.copy()
         if (isinstance(attrs, list) and
-            all (isinstance(attr, str) for attr in attrs)):
-            student_dict = {key: student_dict[key] for key in attrs if key
-                    in student_dict}
+            all (isinstance (attr, str) for attr in attrs)):
+                student_dict = {key: student_dict[key] for key in attrs if key
+                        in student_dict}
 
         return student_dict
