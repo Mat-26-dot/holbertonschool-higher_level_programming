@@ -17,10 +17,6 @@ class Student:
                         "first_name", self.first_name,
                         "last_name", self.last_name,
                         "age", self.age,
-
-        }
-        print("Attribute Names", attrs)
-        student = Student("John", "Doe", 23)
-        student.to_json
+                        }
 
         return student_dict
