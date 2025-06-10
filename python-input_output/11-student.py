@@ -16,8 +16,9 @@ class Student:
 
     def to_json(self, attrs=None):
         student_dict = self.__dict__
-        
+
+        return attrs
+    
     def reload_from_json(self, json):
-        for key, value in json.items():
-            setattr(self, key, value)
-        return self._dict
+        self.json = json
+        return self.json
