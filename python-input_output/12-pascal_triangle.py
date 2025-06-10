@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+"""Module that creates alist of integers representing a triangle"""
+
 
 def pascal_triangle(n):
+    """Module that creates alist of integers
+    representing a triangle"""
 
     if n <= 0:
         return []
@@ -14,4 +18,3 @@ def pascal_triangle(n):
             row.append(1)
         triangle.append(row)
     return triangle
-
