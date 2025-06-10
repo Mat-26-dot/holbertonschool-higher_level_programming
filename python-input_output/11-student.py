@@ -3,16 +3,13 @@
 
 
 class Student:
+    """A class that defines a student"""
     
     
-    """A module that defines a student"""
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-        print("first name:", first_name)
-        print("last name", last_name)
-        print("age:", age)
 
     def to_json(self, attrs=None):
         if isinstance(attrs, list):
