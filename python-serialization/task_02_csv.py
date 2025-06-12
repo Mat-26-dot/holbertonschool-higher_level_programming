@@ -12,5 +12,7 @@ def convert_csv_to_json(csv_filename):
         
         with open('data.json', 'w') as json_file:
             json.dump(data, json_file)
-    except (AssertionError):
-        return True
+    except (AssertionError, FileNotFoundError, IOError):
+        return False
+    
+    return True
