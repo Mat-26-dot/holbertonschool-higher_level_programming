@@ -6,10 +6,10 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         # Route handling
         if self.path == "/":
-            self.send_response(200)
+            self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")
+            self.wfile.write(b"404 Not Found")
 
         elif self.path == "/data":
             self.send_response(200)
@@ -43,5 +43,3 @@ def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):
 
 if __name__ == "__main__":
     run()
-
-
