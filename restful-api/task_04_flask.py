@@ -32,7 +32,7 @@ from flask import request  # add at the top with other imports
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    data = request.get_json()
+    data = request.get_json(force=True)
     username = data.get("username")
 
     if not username:
