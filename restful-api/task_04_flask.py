@@ -27,13 +27,13 @@ def get_user(username):
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    try:
-        if not request.is_json:
-            data = request.get_json()
+    if not request.is_json:
         return jsonify({"error": "Invalid JSON"}), 400
-    except:
-        if not data or "username" not in data:
-            return jsonify({"error": "Username is required"}), 400
+
+    data = request.get_json()
+
+    if not data or "username" not in data:
+        return jsonify({"error": "Username is required"}), 400
 
     username = data["username"]
 
