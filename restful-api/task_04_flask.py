@@ -34,7 +34,7 @@ from flask import request  # add at the top with other imports
 def add_user():
     data = request.get_json(force=True)
     username = data.get("username")
-
+    print("DEBUG - Received data:", data)
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
