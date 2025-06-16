@@ -1,20 +1,17 @@
 from flask import Flask, jsonify, request
 
-app = Flask(__name__)  # creates your Flask app
+app = Flask(__name__)
 
-@app.route("/")  # defines the home route
+# In-memory user store
+users = {}
+
+@app.route("/")
 def home():
     return "Welcome to the Flask API!"
 
-# In-memory user store (declared before the route)
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-}
-
 @app.route("/data")
 def get_usernames():
-    return jsonify(list(users.keys()))  # returns ["jane", "john"]
+    return jsonify(list(users.keys()))
 
 @app.route("/status")
 def status():
@@ -28,13 +25,17 @@ def get_user(username):
     else:
         return jsonify({"error": "User not found"}), 404
 
-from flask import request  # add at the top with other imports
-
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    data = request.get_json(force=True)
+    try:
+        data = request.get_json(force=True)
+    except:
+        return jsonify({"error": "Invalid JSON"}), 400
+
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
     username = data.get("username")
-    print("DEBUG - Received data:", data)
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
@@ -52,3 +53,4 @@ def add_user():
 
 if __name__ == "__main__":
     app.run()
+
