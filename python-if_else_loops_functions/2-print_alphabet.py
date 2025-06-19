@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-from string import ascii_lowercase
+for i in range (97, 123):
 
-lowercase = ascii_lowercase
-
-print("{}".format(lowercase))
+    print("{:c}".format(i), end='')
