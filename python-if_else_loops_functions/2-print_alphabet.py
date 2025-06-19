@@ -4,4 +4,4 @@ from string import ascii_lowercase
 
 lowercase = ascii_lowercase
 
-print(lowercase)
+print("{}".format(lowercase))
