@@ -46,7 +46,7 @@ def expired_token_callback(jwt_header, jwt_payload):
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
 def basic_protected():
-    return jsonify(message="Basic Auth: Access Granted")
+    return "Basic Auth: Access Granted", 200
 
 # JWT Login Route
 @app.route('/login', methods=['POST'])
@@ -61,15 +61,15 @@ def login():
     # Include role in JWT claims
     access_token = create_access_token(
         identity=username,
-        additional_claims={"role": users[username]['role"]}
+        additional_claims={"role": users[username]['role']}
     )
-    return jsonify(access_token=access_token)
+    return jsonify (access_token=access_token)
 
 # JWT Protected Route
 @app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
 def jwt_protected():
-    return jsonify(message="JWT Auth: Access Granted")
+    return "JWT Auth: Access Granted", 200
 
 # Admin-only Route
 @app.route('/admin-only', methods=['GET'])
@@ -78,7 +78,7 @@ def admin_only():
     claims = get_jwt()
     if claims['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
-    return jsonify(message="Admin Access: Granted")
+    return "Admin Access: Granted", 200
 
 if __name__ == '__main__':
     app.run()
