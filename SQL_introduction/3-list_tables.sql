@@ -1,4 +1,4 @@
 -- lists all the tables of a database in your MySQL server
 
-SELECT
+SHOW TABLES 
 FROM mysql;
