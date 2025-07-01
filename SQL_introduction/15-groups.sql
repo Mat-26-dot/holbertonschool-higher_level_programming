@@ -2,4 +2,5 @@
 
 SELECT score, number
 FROM second_table
-ORDER BY = value DESC;
+WHERE score = value
+ORDER BY score DESC;
