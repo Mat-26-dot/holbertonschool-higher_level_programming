@@ -1,6 +1,6 @@
 -- create table in database server adding multiple rows
 
-CREATE TABLE second_table VALUES (
+CREATE TABLE IF NOT EXISTS second_table; (
 
     id INT
     name VARCHAR(256),
