@@ -2,4 +2,6 @@
 
 UPDATE second_table
 SET score = 10
-WHERE score = 'Bob';
+WHERE score = 'Bob'
+
+SELECT * FROM second_table;
