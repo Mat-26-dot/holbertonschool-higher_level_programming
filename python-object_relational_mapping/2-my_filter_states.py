@@ -8,6 +8,7 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
+    state_name = sys.argv[4]
     # Connect to the MySQL database #
     conn = MySQLdb.connect(
         host='localhost',
@@ -15,7 +16,7 @@ if __name__ == "__main__":
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3],
-        state=sys.argv[4]
+
 )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
