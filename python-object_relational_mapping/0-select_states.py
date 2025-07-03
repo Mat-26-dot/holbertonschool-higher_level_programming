@@ -8,14 +8,14 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    
+   
     conn = MySQLdb.connect( 
         host='localhost',
-        user='root',
-        passwd='my_native_password',
-        db='db_name',
-        port=3306
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
+
 )
 
 
