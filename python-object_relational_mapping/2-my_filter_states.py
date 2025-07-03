@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+
+"""
+This module takes an argument and displays all values in the states table
+"""
+
+import MySQLdb
+import sys
+
+if __name__ == "__main__":
+    # Connect to the MySQL database #
+    conn = MySQLdb.connect(
+        host='localhost'
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        name=sys.argv[4]
+)
+    # Create a cursor and execute the query #
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM states FORMAT(@UserInput 'N4') AS FormattedNumber ORDER BY states.id ASC")
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+    cursor.close()
+    conn.close()
