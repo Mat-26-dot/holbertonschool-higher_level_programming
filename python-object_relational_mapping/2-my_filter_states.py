@@ -15,11 +15,11 @@ if __name__ == "__main__":
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3],
-        name=sys.argv[4]
+        state_name=sys.argv[4]
 )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM states FORMAT(@UserInput 'N4') AS FormattedNumber ORDER BY states.id ASC")
+    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC".format())
     rows = cursor.fetchall()
     for row in rows:
         print(row)
