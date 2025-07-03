@@ -7,7 +7,7 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-
+    state_name = sys.argv[4]
     conn = MySQLdb.connect(
         host='localhost',
         port=3306,
