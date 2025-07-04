@@ -19,7 +19,7 @@ if __name__ == "__main__":
     )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
-    cursor.execute("SELECT FROM states WHERE name = '{}' "
+    cursor.execute("SELECT * FROM states WHERE name = '{}' "
                    "ORDER BY states.id ASC".format(state_name))
     rows = cursor.fetchall()
     for row in rows:
