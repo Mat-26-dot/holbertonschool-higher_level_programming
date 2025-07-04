@@ -21,7 +21,7 @@ if __name__ == "__main__":
     cursor = conn.cursor()
     query = ("SELECT * FROM states WHERE BINARY name = '%s' "
                    "ORDER BY states.id ASC")
-    cursor.execute(query, state_name,)
+    cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
