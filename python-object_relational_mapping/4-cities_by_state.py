@@ -24,7 +24,9 @@ if __name__ == "__main__":
     )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
-    query = ("SELECT * FROM states WHERE BINARY name = '{}' "
+    query = ("SELECT cities.id, cities.name, states.name"
+             "FROM cities"
+             "JOIN states ON cities.state_id = states.id"
              "ORDER BY cities.id ASC")
     # Query is parsed separately to the database to prevent name tampering
     # such as SQL injection #
