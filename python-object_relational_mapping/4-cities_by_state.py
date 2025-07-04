@@ -28,7 +28,7 @@ if __name__ == "__main__":
              "ORDER BY cities.id ASC")
     # Query is parsed separately to the database to prevent name tampering
     # such as SQL injection #
-    cursor.execute(query, (states,))
+    cursor.execute(query,)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
