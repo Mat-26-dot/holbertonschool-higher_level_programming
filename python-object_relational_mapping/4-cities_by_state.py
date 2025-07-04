@@ -8,8 +8,6 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Initialise Args #
-    cities = sys.argv[4]
     # Connect to the MySQL database #
     conn = MySQLdb.connect(
         host='localhost',
