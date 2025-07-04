@@ -22,14 +22,13 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3],
     )
-    cities = sys.argv[4]
     # Create a cursor and execute the query #
     cursor = conn.cursor()
     query = ("SELECT * FROM states WHERE BINARY name = '{}' "
              "ORDER BY cities.id ASC")
     # Query is parsed separately to the database to prevent name tampering
     # such as SQL injection #
-    cursor.execute(query, (cities,))
+    cursor.execute(query, (states,))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
