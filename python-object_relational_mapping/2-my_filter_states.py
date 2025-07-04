@@ -16,12 +16,11 @@ if __name__ == "__main__":
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3],
-
-)
+    )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM states WHERE name = '{}' "
-    "ORDER BY states.id ASC".format(state_name))
+                   "ORDER BY states.id ASC".format(state_name))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
