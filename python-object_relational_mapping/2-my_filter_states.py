@@ -19,8 +19,10 @@ if __name__ == "__main__":
     )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM states WHERE BINARY name = '{}' "
+    state_name = sys.argv[4]
+    query = ("SELECT * FROM states WHERE BINARY name = '%s' "
                    "ORDER BY states.id ASC".format(state_name))
+    cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
