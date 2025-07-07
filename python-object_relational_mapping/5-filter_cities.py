@@ -8,14 +8,13 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    city_name=sys.argv[4],
-    state_name=sys.argv[5]
-    
     if len(sys.argv) != 5:
-        print("{} <mysql username> <mysql password> <database name>"
-              "<city name> <state.id>"
+        print("Usage: {} <mysql username> <mysql password> <database name>"
+              "<state.id>"
               .format(sys.argv[0]))
         sys.exit(1)
+    
+    state_name = sys.argv[4]
     # Connect to the MySQL database #
     conn = MySQLdb.connect(
         host='localhost',
@@ -26,10 +25,16 @@ if __name__ == "__main__":
     )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
-    query = "(INSERT INTO cities (name, state.id) VALUES %s, %s)"
+    query = """
+        SELECT cities.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        WHERE states.name = %s
+        ORDER BY cities.id ASC
+    """
     # Query is parsed separately to the database to prevent name tampering
     # such as SQL injection #
-    cursor.execute(query, city_name, state_name)
+    cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
