@@ -13,7 +13,7 @@ if __name__ == "__main__":
               "<state.id>"
               .format(sys.argv[0]))
         sys.exit(1)
-    
+
     state_name = sys.argv[4]
     # Connect to the MySQL database #
     conn = MySQLdb.connect(
@@ -39,4 +39,3 @@ if __name__ == "__main__":
     print(", ".join([row[0] for row in rows]))
     cursor.close()
     conn.close()
-
