@@ -10,6 +10,7 @@ import sys
 if __name__ == "__main__":
     # Initialise Args #
     state_name = sys.argv[4]
+    cities_name = sys.argv[5]
     # Connect to the MySQL database #
     conn = MySQLdb.connect(
         host='localhost',
@@ -26,7 +27,7 @@ if __name__ == "__main__":
              ORDER BY cities.id ASC""")
     # Query is parsed separately to the database to prevent name tampering
     # such as SQL injection #
-    cursor.execute(query, (state_name,))
+    cursor.execute(query, (state_name, cities_name))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
