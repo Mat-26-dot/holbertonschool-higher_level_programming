@@ -22,8 +22,8 @@ if __name__ == "__main__":
     )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
-    query = ("INSERT INTO cities.id, cities.name,"
-             "states.name VALUES (%s, %s)"
+    query = ("INSERT INTO cities (name, state.id)"
+             "VALUES (%s, %s)"
              "ORDER BY cities.id ASC")
     # Query is parsed separately to the database to prevent name tampering
     # such as SQL injection #
