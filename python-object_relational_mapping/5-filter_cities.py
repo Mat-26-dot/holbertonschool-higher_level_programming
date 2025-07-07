@@ -36,7 +36,7 @@ if __name__ == "__main__":
     # such as SQL injection #
     cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+    print(", ".join([row[0] for row in rows]))
     cursor.close()
     conn.close()
+
