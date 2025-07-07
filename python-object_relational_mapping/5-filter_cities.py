@@ -8,9 +8,10 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Initialise Args #
-    state_name = sys.argv[4]
-    cities_name = sys.argv[5]
+    if len(sys.argv) != 5:
+        print("{} <mysql username> <mysql password> <database name>"
+              .format(sys.argv[0]))
+        sys.exit(1)
     # Connect to the MySQL database #
     conn = MySQLdb.connect(
         host='localhost',
@@ -27,7 +28,7 @@ if __name__ == "__main__":
              ORDER BY cities.id ASC""")
     # Query is parsed separately to the database to prevent name tampering
     # such as SQL injection #
-    cursor.execute(query, (state_name, cities_name))
+    cursor.execute(query,)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
