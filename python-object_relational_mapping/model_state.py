@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+
+"""
+Python file that contains a class definition of State and an instance
+"""
+
 import sys
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
