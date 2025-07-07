@@ -9,8 +9,9 @@ from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-"""Class that contains the class definition of a State"""
+
 class State(Base):
+    """Class that contains the class definition of a State"""
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
