@@ -12,10 +12,8 @@ import sqlalchemy
 
 if __name__ == "__main__":
     if len(sys.argv) < 5:
-        print("script.py <username> <password> <database> <state_name>")
+        print("Usage: script.py <username> <password> <database> <state_name>")
         sys.exit(1)
-
-    user, password, db_name, state_name = sys.argv[1:5]
     
     state_name=sys.argv[4]
     conn = MySQLdb.connect(
@@ -27,7 +25,7 @@ if __name__ == "__main__":
 )
     cursor = conn.cursor()
     query = ("SELECT * FROM State WHERE BINARY name = '%s' "
-             "ORDER BY states.id ASC")
+             "ORDER BY id ASC")
 
     cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
