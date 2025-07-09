@@ -9,28 +9,23 @@ from model_state import Base, State
 import MySQLdb
 import sys
 import sqlalchemy
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    if len(sys.argv) < 5:
-        print("Usage: script.py <username> <password> <database> "
-        "<state_name>", file=sys.stderr)
+    if len(sys.argv) != 4:
+        print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
-    
-    state_name=sys.argv[4]
-    conn = MySQLdb.connect(
-        host='localhost',
-        port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-)
-    cursor = conn.cursor()
-    query = ("SELECT * FROM State WHERE BINARY name = '%s' "
-             "ORDER BY id ASC")
 
-    cursor.execute(query, (state_name,))
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row)
-    cursor.close()
-    conn.close()
+    user, password, db_name = sys.argv[1:4]
+    engine = create_engine(
+        f"mysql+mysqldb://{user}:{password}@localhost:3306/{db_name}",
+        pool_pre_ping=True
+    )
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    for state in session.query(State).order_by(State.id):
+        print(f"{state.id}: {state.name}")
+
+    session.close()
