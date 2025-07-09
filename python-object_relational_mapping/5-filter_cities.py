@@ -10,10 +10,14 @@ import sys
 if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Usage: {} <mysql username> <mysql password> <database name>"
-              "<state.id>"
+              "<state name>"
               .format(sys.argv[0]))
         sys.exit(1)
-
+    host='localhost',
+    port=3306,
+    user=sys.argv[1],
+    passwd=sys.argv[2],
+    db=sys.argv[3]
     state_name = sys.argv[4]
     # Connect to the MySQL database #
     conn = MySQLdb.connect(
@@ -21,7 +25,7 @@ if __name__ == "__main__":
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
-        db=sys.argv[3],
+        db=sys.argv[3]
     )
     # Create a cursor and execute the query #
     cursor = conn.cursor()
