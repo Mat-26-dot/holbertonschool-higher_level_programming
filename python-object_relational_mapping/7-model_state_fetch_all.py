@@ -12,7 +12,8 @@ import sqlalchemy
 
 if __name__ == "__main__":
     if len(sys.argv) < 5:
-        print("Usage: script.py <username> <password> <database> <state_name>")
+        print("Usage: script.py <username> <password> <database> "
+        "<state_name>", file=sys.stderr)
         sys.exit(1)
     
     state_name=sys.argv[4]
