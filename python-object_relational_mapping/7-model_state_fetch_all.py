@@ -1,6 +1,8 @@
 #!/usr/bin/python3
  
-"""lists all State objects from the database hbtn_0e_6_usa"""
+"""
+lists all State objects from the database hbtn_0e_6_usa
+"""
 
 
 from model_state import Base, State
@@ -30,4 +32,4 @@ if __name__ == "__main__":
     for row in rows:
         print(row)
     cursor.close()
-conn.close()
+    conn.close()
