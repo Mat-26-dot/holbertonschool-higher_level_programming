@@ -15,6 +15,8 @@ if __name__ == "__main__":
         print("script.py <username> <password> <database> <state_name>")
         sys.exit(1)
 
+    user, password, db_name, state_name = sys.argv[1:5]
+    
     state_name=sys.argv[4]
     conn = MySQLdb.connect(
         host='localhost',
