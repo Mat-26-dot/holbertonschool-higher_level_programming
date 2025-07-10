@@ -9,6 +9,7 @@ import sys
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+import MySQLdb
 
 if __name__ == "__main__":
 
@@ -27,7 +28,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     # Query: Filter state objects that contain letter 'a'
-    states = Session.query(State).filter(State.name.ilike('%a%')).all()
+    states = session.query(State).filter(State.name.ilike('%a%')).all()
     # Print results
     if states:
         for state in states:
