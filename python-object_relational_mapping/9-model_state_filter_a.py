@@ -28,7 +28,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     # Query: Filter state objects that contain letter 'a'
-    states = session.query(State).filter(State.name.ilike('%a%')).all()
+    states = session.query(State).filter(State.name.ilike('%a%')).order_by(State.id).all()
     # Print results
     if states:
         for state in states:
