@@ -25,7 +25,7 @@ if __name__ == "__main__":
     )
     # Session lets you interact with db using python objects not SQL
     Session = sessionmaker(bind=engine)
-    Session = Session()
+    session = Session()
     # Query: Filter state objects that contain letter 'a'
     states = Session.query(State).filter(State.name.ilike('%a%')).all()
     # Print results
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     else:
         print("Nothing")
     # Close session to save resources
-    Session.close()
+    session.close()
 
 
 
