@@ -32,7 +32,7 @@ if __name__ == "__main__":
     # Print results
     if states:
         for state in states:
-            print(f"{State.id}: {State.name}")
+            print(f"{state.id}': {state.name}")
     else:
         print("Nothing")
     # Close session to save resources
