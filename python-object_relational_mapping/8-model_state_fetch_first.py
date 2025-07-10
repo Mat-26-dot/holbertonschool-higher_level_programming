@@ -15,9 +15,9 @@ if __name__ == "__main__":
         print("Usage: script.py <username> <password> <database>")
         sys.exit(1)
     # Parse command-line args
-    username=sys.argv[1]
-    password=sys.argv[2]
-    db_name=sys.argv[3]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
 
     # Makes connection with db to communicate with db using SQLAlchemy
     # mysql+mysqldb - connect mysqldb with mysql driver
