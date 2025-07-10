@@ -8,17 +8,13 @@ hbtn_0e_6_usa
 from model_state import Base, State
 import sys
 from sqlalchemy.orm import sessionmaker
-import MySQLdb
 from sqlalchemy import create_engine
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: script.py <username> <password> <database>")
         sys.exit(1)
-    # Get mysql credentials from database from command-line args
-        
-        host='localhost',
-        port=3306,
+    
+        # Parse command-line args    
         username=sys.argv[1],
         password=sys.argv[2],
         database=sys.argv[3],
