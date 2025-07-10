@@ -14,17 +14,16 @@ if __name__ == "__main__":
     if len(sys.argv) != 4:
         print("Usage: script.py <username> <password> <database>")
         sys.exit(1)
-    
-        # Parse command-line args    
-        username=sys.argv[1],
-        password=sys.argv[2],
-        db_name=sys.argv[3]
+    # Parse command-line args    
+    username=sys.argv[1]
+    password=sys.argv[2]
+    db_name=sys.argv[3]
     
     # Makes connection with db to communicate with db using SQLAlchemy
     # mysql+mysqldb - connect mysqldb with mysql driver
     engine = create_engine(
-    f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}",
-    pool_pre_ping=True
+        f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}",
+        pool_pre_ping=True
     )
     # Why this section is needed - lets you interact with db using python 
     # objects, not using raw SQL
@@ -37,11 +36,11 @@ if __name__ == "__main__":
 
     # Display the result 
     if first_state:
-        print(f"{first_state.id}:{first_state.name}")
+        print(f"{first_state.id}: {first_state.name}")
     else:
         print("Nothing")
 
-    Session.close()
+    session.close()
 
 
 
