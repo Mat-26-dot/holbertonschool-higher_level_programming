@@ -12,13 +12,13 @@ from sqlalchemy import create_engine
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
+        print("Usage: script.py <username> <password> <database>")
         sys.exit(1)
     
         # Parse command-line args    
         username=sys.argv[1],
         password=sys.argv[2],
-        database=sys.argv[3],
-        db_name=sys.argv[4],
+        db_name=sys.argv[3]
     
     # Makes connection with db to communicate with db using SQLAlchemy
     # mysql+mysqldb - connect mysqldb with mysql driver
