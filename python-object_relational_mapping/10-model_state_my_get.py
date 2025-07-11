@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-A module that prints the State object with the name passed 
+A module that prints the State object with the name passed
 as argument from the database hbtn_0e_6_usa
 """
 
@@ -13,8 +13,9 @@ import sys
 if __name__ == "__main__":
     # To handle index error message
     if len(sys.argv) != 5:
-        print(f"Usage: {sys.argv[0]} <username> <password> <db_name> <state_name>")
-        sys.exit (1)
+        print(
+        f"Usage: {sys.argv[0]} <username> <password> <db_name> <state_name>")
+        sys.exit(1)
     # Credentials to connect to database
     username = sys.argv[1]
     password = sys.argv[2]
@@ -33,7 +34,7 @@ if __name__ == "__main__":
         State.name == state_name).first()
     # Display data in format
     if state:
-            print(state.id)
+        print(state.id)
     else:
         print("Not found")
     # Free resources and close database connection
