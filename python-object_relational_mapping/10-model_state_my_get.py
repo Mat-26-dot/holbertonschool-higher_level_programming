@@ -22,7 +22,7 @@ if __name__ == "__main__":
         state_name = sys.argv[4]
     # Connect to database
     engine = create_engine(
-        f"mysql+mysqldb://{username}:{password}@localhost/{db_name}",
+        f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}",
         pool_pre_ping=True
     )
     # Start a workspace for database operations
