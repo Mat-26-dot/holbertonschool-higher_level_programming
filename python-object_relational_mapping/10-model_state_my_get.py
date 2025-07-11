@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # Display data in in format
     if state:
         for state in state_name:
-            print(f"{state.id}: {state.name}")
+            print(state.id)
     else:
         print("Not found")
     # Free resources and close database connection
