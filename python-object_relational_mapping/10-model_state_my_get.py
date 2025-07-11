@@ -31,9 +31,8 @@ if __name__ == "__main__":
     # Retrieve and sort records as python objects
     state = session.query(State).filter(
         State.name == state_name).first()
-    # Display data in in format
+    # Display data in format
     if state:
-        for state in state_name:
             print(state.id)
     else:
         print("Not found")
