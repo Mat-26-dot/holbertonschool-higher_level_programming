@@ -20,7 +20,7 @@ if __name__ == "__main__":
         username = sys.argv[1]
         password = sys.argv[2]
         db_name = sys.argv[3]
-        state_name = sys.argv[4]
+        state_name = sys.argv[4].strip("'\"")
     # Connect to database
     engine = create_engine(
         f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}",
