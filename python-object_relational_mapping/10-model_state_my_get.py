@@ -11,6 +11,7 @@ from sqlalchemy import create_engine
 import sys
 
 if __name__ == "__main__":
+    print(sys.argv)
     # To handle index error message
     if len(sys.argv) != 5:
         print(f"Usage: {sys.argv[0]} <username> <password> <db_name> <state_name>")
@@ -28,7 +29,7 @@ if __name__ == "__main__":
     # Start a workspace for database operations
     Session = sessionmaker(bind=engine)
     session = Session()
-    # Retrieve and sort records as python objects
+    # Query for the State object with the given name
     state = session.query(State).filter(
         State.name == state_name).first()
     # Display data in format
