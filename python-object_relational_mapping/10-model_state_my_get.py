@@ -14,7 +14,7 @@ if __name__ == "__main__":
     # To handle index error message
     if len(sys.argv) != 5:
         print(
-        f"Usage: {sys.argv[0]} <username> <password> <db_name> <state_name>")
+            f"Usage: {sys.argv[0]} <username> <password> <db_name> <state_name>")
         sys.exit(1)
     # Credentials to connect to database
     username = sys.argv[1]
