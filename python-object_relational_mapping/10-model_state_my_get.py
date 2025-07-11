@@ -23,6 +23,7 @@ if __name__ == "__main__":
     # Connect to database
     engine = create_engine(
         f"mysql+mysqldb://{username}:{password}@localhost/{db_name}",
+        pool_pre_ping=True
     )
     # Start a workspace for database operations
     Session = sessionmaker(bind=engine)
@@ -33,14 +34,8 @@ if __name__ == "__main__":
     # Display data in in format
     if state:
         for state in state_name:
-            print(f"{id}: {state.name}")
+            print(f"{state.id}: {state.name}")
     else:
         print("Not found")
     # Free resources and close database connection
     session.close()
-
-
-
-    
-
-
