@@ -11,7 +11,6 @@ from sqlalchemy import create_engine
 import sys
 
 if __name__ == "__main__":
-    print(sys.argv)
     # To handle index error message
     if len(sys.argv) != 5:
         print(f"Usage: {sys.argv[0]} <username> <password> <db_name> <state_name>")
