@@ -4,9 +4,9 @@ const x = parseInt(arg, 10);
 if (isNaN(x)) {
     console.log('Missing number of occurences');
 } else {
-let output = '';
+const arr = [];
 for (let i = 0; i < x; i++) {
-  output += 'C is fun\n';
+  arr.push('C is fun');
 }
-console.log(output);
+console.log(arr.join('\n'));
 }
