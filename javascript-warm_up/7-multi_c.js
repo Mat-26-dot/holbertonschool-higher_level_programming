@@ -6,7 +6,7 @@ if (isNaN(x)) {
 } else if (x > 0) {
   const arr = [];
   for (let i = 0; i < x; i++) {
-  arr.push('C is fun');
-}
+    arr.push('C is fun');
+  }
   console.log(arr.join('\n'));
 }
