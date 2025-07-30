@@ -3,7 +3,6 @@ function factorial(n) {
 const num = parseInt(n)
 
 if (isNaN(num)) {
-  console.log(1);
   return 1;
 }
     if (num <= 1) {
@@ -11,8 +10,6 @@ if (isNaN(num)) {
     }
     return num * factorial(num - 1);
 }
-const result = process.argv[2];
-
-  console.log(result);
+const input = process.argv[2];
 
 console.log(factorial(input));
