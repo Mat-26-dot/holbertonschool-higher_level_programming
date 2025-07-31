@@ -24,10 +24,3 @@ const numbers = args.map(arg => Number(arg)); // convert all to integers
   } else {
     console.log(secondMax);
   }
-
-
-//You can assume all arguments can be converted to integer
-//If no argument passed, print 0
-//If the number of arguments is 1, print 0
-//You must use console.log(...) to print all output
-//You are not allowed to use var
