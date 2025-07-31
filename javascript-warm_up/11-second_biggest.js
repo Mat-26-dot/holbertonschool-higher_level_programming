@@ -16,7 +16,7 @@ for (const num of numbers) {
   } else if (num < max && num > secondMax) {
     secondMax = num;
   }
-  }
+}
 // After iteration, print secondMax or 0 if it doesn't exist
 if (secondMax === -Infinity) {
   console.log(0);
