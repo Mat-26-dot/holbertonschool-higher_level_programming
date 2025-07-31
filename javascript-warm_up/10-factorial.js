@@ -10,6 +10,6 @@ function factorial (n) {
   }
   return num * factorial(num - 1);
 }
-  const input = process.argv[2];
+const input = process.argv[2];
 
-  console.log(factorial(input));
+console.log(factorial(input));
