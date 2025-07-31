@@ -4,6 +4,7 @@ const numbers = args.map(arg => Number(arg));
 
 if (numbers.length <= 1) {
   console.log(0);
+  process.exit(0);
 }
 // Initialize max and secondmax
 let max = -Infinity;
