@@ -21,7 +21,7 @@ def generate_invitations(template, attendees):
     
     # Process each attendee
     for idx, attendee in enumerate(attendees, start=1):
-        
+        output_text = template
         filename = f"output_{idx}.txt"
     with open(filename, 'w', encoding='utf-8') as file:
         file.write(output_text)
