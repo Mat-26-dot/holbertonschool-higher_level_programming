@@ -22,15 +22,15 @@ def generate_invitations(template, attendees):
     # Process each attendee
     for idx, attendee in enumerate(attendees, start=1):
         output_text = template
+        
+    # Replace missing data with "N/A"
+    for ph in placeholders:
+        value = attendee.get(ph, "N/A")
+        output_text = output_text.replace(f"{{{{{ph}}}}}", str(value))
+        
         filename = f"output_{idx}.txt"
     with open(filename, 'w', encoding='utf-8') as file:
         file.write(output_text)
-        output_text = template
-        for ph in placeholders:
-            
-            # Replace missing data with "N/A"
-            value = attendee.get(ph, "N/A")
-            output_text = output_text.replace(f"{{{{{ph}}}}}", str(value))
         
         # Write to output file
         filename = f"output_{idx}.txt"
