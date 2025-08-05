@@ -26,7 +26,7 @@ def generate_invitations(template, attendees):
     # Replace missing data with "N/A"
     for ph in placeholders:
         value = attendee.get(ph, "N/A")
-        output_text = output_text.replace(f"{{{{{ph}}}}}", str(value))
+        output_text = output_text.replace(f"{{{ph}}}", str(value))
         
         filename = f"output_{idx}.txt"
     with open(filename, 'w', encoding='utf-8') as file:
