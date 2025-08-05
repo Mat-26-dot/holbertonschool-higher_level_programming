@@ -1,3 +1,23 @@
+import json
+import csv
+
+def read_json_products(filename='products.json'):
+    with open(filename, 'r') as file:
+        return json.load(file)
+
+def read_csv_products(filename='products.csv'):
+    products = []
+    with open(filename, newline='') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            products.append({
+                'id': int(row['id']),
+                'name': row['name'],
+                'category': row['category'],
+                'price': float(row['price'])
+            })
+    return products
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -28,16 +48,3 @@ import csv
 def read_json_products(filename='products.json'):
     with open(filename, 'r') as file:
         return json.load(file)
-
-def read_csv_products(filename='products.csv'):
-    products = []
-    with open(filename, newline='') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            products.append({
-                'id': int(row['id']),
-                'name': row['name'],
-                'category': row['category'],
-                'price': float(row['price'])
-            })
-    return products
