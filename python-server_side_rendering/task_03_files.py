@@ -41,10 +41,3 @@ def display_products():
 
     return render_template("product_display.html", products=products, error=None)
 
-
-import json
-import csv
-
-def read_json_products(filename='products.json'):
-    with open(filename, 'r') as file:
-        return json.load(file)
