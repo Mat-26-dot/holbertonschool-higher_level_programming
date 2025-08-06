@@ -1,43 +1,73 @@
+from flask import Flask, render_template, request
 import json
 import csv
 
-def read_json_products(filename='products.json'):
-    with open(filename, 'r') as file:
-        return json.load(file)
-
-def read_csv_products(filename='products.csv'):
-    products = []
-    with open(filename, newline='') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            products.append({
-                'id': int(row['id']),
-                'name': row['name'],
-                'category': row['category'],
-                'price': float(row['price'])
-            })
-    return products
-
-from flask import Flask, render_template, request
-
 app = Flask(__name__)
 
+def load_json_products(filepath='products.json'):
+    try:
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+            # Ensure all fields are correct type
+            for item in data:
+                item['id'] = int(item['id'])
+                item['price'] = float(item['price'])
+            return data
+    except Exception as e:
+        return None
+
+def load_csv_products(filepath='products.csv'):
+    try:
+        data = []
+        with open(filepath, newline='') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                item = {
+                    'id': int(row['id']),
+                    'name': row['name'],
+                    'category': row['category'],
+                    'price': float(row['price'])
+                }
+                data.append(item)
+        return data
+    except Exception as e:
+        return None
+
 @app.route('/products')
-def display_products():
-    source = request.args.get('source')
-    product_id = request.args.get('id', type=int)
+def show_products():
+    source = request.args.get('source', '').lower()
+    id_filter = request.args.get('id', None)
+    error = None
+    products = []
 
     if source == 'json':
-        products = read_json_products()
+        products = load_json_products()
+        if products is None:
+            error = "Failed to read JSON data."
     elif source == 'csv':
-        products = read_csv_products()
+        products = load_csv_products()
+        if products is None:
+            error = "Failed to read CSV data."
     else:
-        return render_template("product_display.html", error="Wrong source", products=None)
+        error = "Wrong source"
+        products = None
 
-    if product_id:
-        products = [product for product in products if product['id'] == product_id]
-        if not products:
-            return render_template("product_display.html", error="Product not found", products=None)
+    # Only filter if no file error and if there's an 'id'
+    if not error and id_filter is not None:
+        try:
+            id_filter = int(id_filter)
+        except ValueError:
+            products = []
+            error = "Invalid id value: must be an integer."
+        else:
+            filtered = [p for p in products if p['id'] == id_filter]
+            if filtered:
+                products = filtered
+            else:
+                products = []
+                error = "Product not found"
 
-    return render_template("product_display.html", products=products, error=None)
+    return render_template('product_display.html', products=products, error=error)
 
+if __name__ == '__main__':
+    app.run(debug=True)
