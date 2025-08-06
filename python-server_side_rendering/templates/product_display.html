@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Products</title>
+    <title>Product Display</title>
 </head>
 <body>
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% elif products %}
-        <table border="1">
-            <tr>
-                <th>ID</th><th>Name</th><th>Category</th><th>Price</th>
-            </tr>
-            {% for p in products %}
-            <tr>
-                <td>{{ p.id if p.id else p['id'] }}</td>
-                <td>{{ p.name if p.name else p['name'] }}</td>
-                <td>{{ p.category if p.category else p['category'] }}</td>
-                <td>{{ p.price if p.price else p['price'] }}</td>
-            </tr>
+    <h1>Product List</h1>
+    {% if products %}
+        <ul>
+            {% for item in products %}
+                <li>
+                    <strong>{{ item.name }}</strong> - ${{ item.price }}<br>
+                    Category: {{ item.category }}
+                </li>
             {% endfor %}
-        </table>
+        </ul>
     {% else %}
-        <p>No products to display.</p>
+        <p>No products found.</p>
     {% endif %}
 </body>
 </html>
