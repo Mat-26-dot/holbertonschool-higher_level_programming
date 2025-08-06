@@ -1,57 +1,59 @@
 from flask import Flask, render_template, request
-import csv
 import json
+import csv
 import sqlite3
 
 app = Flask(__name__)
 
-def get_products_from_json():
+def get_data_from_json():
     try:
         with open('products.json') as f:
-            data = json.load(f)
-            return data['products'], None
+            return json.load(f)
     except Exception as e:
-        return None, f"JSON error: {e}"
+        return {"error": str(e)}
 
-def get_products_from_csv(filename):
+def get_data_from_csv():
     try:
-        with open(filename) as f:
+        with open('products.csv') as f:
             reader = csv.DictReader(f)
-            return list(reader), None
+            return list(reader)
     except Exception as e:
-        return None, f"CSV error: {e}"
+        return {"error": str(e)}
 
-def get_products_from_sqlite(db_file):
+def get_data_from_sql():
     try:
-        conn = sqlite3.connect(db_file)
+        conn = sqlite3.connect('products.db')
         cursor = conn.cursor()
         cursor.execute("SELECT id, name, category, price FROM Products")
         rows = cursor.fetchall()
         conn.close()
-        products = [{"id": r[0], "name": r[1], "category": r[2], "price": r[3]} for r in rows]
-        return products, None
+        return [{"id": r[0], "name": r[1], "category": r[2], "price": r[3]} for r in rows]
     except Exception as e:
-        return None, f"Database error: {e}"
+        return {"error": str(e)}
 
 @app.route('/products')
-def show_products():
+def display_products():
     source = request.args.get('source')
-
-    if source == "json":
-        products, error = get_products_from_json("products.json")
-    elif source == "csv":
-        products, error = get_products_from_csv("products.csv")
-    elif source == "sql":
-        products, error = get_products_from_sqlite("products.db")
+    id_filter = request.args.get('id')
+    
+    if source == 'json':
+        data = get_data_from_json()
+    elif source == 'csv':
+        data = get_data_from_csv()
+    elif source == 'sql':
+        data = get_data_from_sql()
     else:
-        products = None
-        error = "Wrong source"
+        return "Wrong source", 400
 
-    return render_template(
-        "product_display.html",
-        products=products,
-        error=error
-    )
+    # Handle errors in data fetching
+    if isinstance(data, dict) and "error" in data:
+        return f"Error loading data: {data['error']}", 500
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    # Filter by ID if provided
+    if id_filter:
+        data = [item for item in data if str(item.get('id')) == id_filter]
+        if not data:
+            return f"No product found with id {id_filter}", 404
+
+    return render_template('product_display.html', products=data)
+
