@@ -11,6 +11,7 @@ def create_database():
             price REAL NOT NULL
         )
     ''')
+    # Delete all previous data to avoid unwanted products like "Tesla Coil"
     cursor.execute('DELETE FROM Products')
     cursor.execute('''
         INSERT INTO Products (id, name, category, price)
@@ -23,4 +24,3 @@ def create_database():
 
 if __name__ == '__main__':
     create_database()
-
