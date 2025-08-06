@@ -10,16 +10,12 @@
         <table border="1" cellpadding="5" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
+                    <th>ID</th><th>Name</th><th>Category</th><th>Price</th>
                 </tr>
             </thead>
             <tbody>
             {% for p in products %}
                 <tr>
-                    <!-- Handle the case where p may be dict or object with attributes -->
                     <td>{{ p.id if p.id is defined else p['id'] }}</td>
                     <td>{{ p.name if p.name is defined else p['name'] }}</td>
                     <td>{{ p.category if p.category is defined else p['category'] }}</td>
@@ -33,4 +29,3 @@
     {% endif %}
 </body>
 </html>
-
