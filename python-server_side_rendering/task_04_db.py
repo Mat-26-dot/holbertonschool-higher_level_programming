@@ -33,6 +33,7 @@ def get_data_from_sql():
 
 @app.route('/products')
 def display_products():
+    response = requests.get('http://your-backend-service/products')
     source = request.args.get('source')
     id_filter = request.args.get('id')
     
@@ -43,7 +44,9 @@ def display_products():
     elif source == 'sql':
         data = get_data_from_sql()
     else:
-        assert response.status_code == 200
+        if response.status_code != 200:
+            return f"Failed to get products. Status code: {response.status_code}", response.status_code
+        data = response.json()
 
     # Handle errors in data fetching
     if isinstance(data, dict) and "error" in data:
