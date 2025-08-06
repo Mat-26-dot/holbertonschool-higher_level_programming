@@ -43,7 +43,7 @@ def read_sql():
     except Exception as e:
         return None
 
-@app.route('/')
+@app.route('/products')
 def display_products():
     source = request.args.get('source')
     products = None
