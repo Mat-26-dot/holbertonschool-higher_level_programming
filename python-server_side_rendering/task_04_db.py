@@ -5,9 +5,9 @@ import sqlite3
 
 app = Flask(__name__)
 
-def get_products_from_json(filename):
+def get_products_from_json():
     try:
-        with open(filename) as f:
+        with open('products.json') as f:
             data = json.load(f)
             return data['products'], None
     except Exception as e:
