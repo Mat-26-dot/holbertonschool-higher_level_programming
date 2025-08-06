@@ -57,3 +57,6 @@ def display_products():
 
     return render_template('product_display.html', products=data)
 
+if __name__ == '__main__':
+    app.run(debug=False)
+
