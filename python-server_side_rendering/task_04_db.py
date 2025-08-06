@@ -43,7 +43,7 @@ def display_products():
     elif source == 'sql':
         data = get_data_from_sql()
     else:
-        return "Wrong source", 400
+        assert response.status_code == 200,
 
     # Handle errors in data fetching
     if isinstance(data, dict) and "error" in data:
