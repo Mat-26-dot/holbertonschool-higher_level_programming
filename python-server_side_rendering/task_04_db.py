@@ -9,8 +9,10 @@ def get_products_from_json(filename):
     try:
         with open(filename) as f:
             data = json.load(f)
+            print("Loaded JSON products:", data)
             return data['products'], None
     except Exception as e:
+        print(f"JSON error: {e}")
         return None, f"JSON error: {e}"
 
 def get_products_from_csv(filename):
